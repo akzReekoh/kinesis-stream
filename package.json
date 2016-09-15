@@ -12,7 +12,10 @@
     "url": "https://github.com/Reekoh/kinesis-stream/"
   },
   "dependencies": {
-    "kinesis": "^1.2.2"
+    "async": "^1.5.2",
+    "kinesis": "^1.2.2",
+    "lodash.isempty": "^4.4.0",
+    "lodash.isplainobject": "^4.0.6"
   },
   "devDependencies": {
     "gulp": "^3.9.1",
