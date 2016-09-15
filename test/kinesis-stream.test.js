@@ -1,10 +1,4 @@
-/*
- * Just a sample code to test the stream plugin.
- * Kindly write your own unit tests for your own plugin.
- */
 'use strict';
-
-const PORT = 8080;
 
 var cp     = require('child_process'),
 	assert = require('assert'),
@@ -13,8 +7,13 @@ var cp     = require('child_process'),
 describe('Stream', function () {
 	this.slow(5000);
 
-	after('terminate child process', function () {
-		stream.kill('SIGKILL');
+	after('terminate child process', function (done) {
+		this.timeout(65000);
+
+		setTimeout(() => {
+			stream.kill('SIGKILL');
+			done();
+		}, 60000);
 	});
 
 	describe('#spawn', function () {
@@ -30,6 +29,16 @@ describe('Stream', function () {
 			stream.on('message', function (message) {
 				if (message.type === 'ready')
 					done();
+				else if (message.type === 'requestdeviceinfo') {
+					if (message.data.deviceId === '1C84A6') {
+						stream.send({
+							type: message.data.requestId,
+							data: {
+								_id: message.data.deviceId
+							}
+						});
+					}
+				}
 			});
 
 			stream.send({
