@@ -12,33 +12,33 @@ metadata:
   tags:
     - aws
     - kinesis
-  config:
-    accessKeyId:
-      label: Access Key ID
-      type: String
-      required: true
-      help: Please provide your AWS Access Key ID.
-      maxLength: 1000
-    secretAccessKey:
-      label: Password
-      type: String
-      required: true
-      help: Please provide your AWS Secret Access Key.
-      maxLength: 1000
-    streamName:
-      label: Stream Name
-      type: String
-      required: true
-      help: Please provide your AWS Kinesis Stream name.
-      maxLength: 1000
-    region:
-      label: Region
-      type: String
-      required: true
-      help: Please provide your AWS Region.
-      maxLength: 1000
   consumerType: subscribe
   release:
     version: 1.0.0
     notes: path/to/RELEASENOTESv1.0.0.md
     image: path/to/docker/image
+    config:
+        accessKeyId:
+          label: Access Key ID
+          type: String
+          required: true
+          help: Please provide your AWS Access Key ID.
+          maxLength: 1000
+        secretAccessKey:
+          label: Password
+          type: String
+          required: true
+          help: Please provide your AWS Secret Access Key.
+          maxLength: 1000
+        streamName:
+          label: Stream Name
+          type: String
+          required: true
+          help: Please provide your AWS Kinesis Stream name.
+          maxLength: 1000
+        region:
+          label: Region
+          type: String
+          required: true
+          help: Please provide your AWS Region.
+          maxLength: 1000
